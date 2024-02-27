@@ -33,6 +33,7 @@
     scroll-snap-align: start;
     object-fit: cover;
 }
+
 .slider-nav{
     display: flex;
     column-gap: 1rem;
