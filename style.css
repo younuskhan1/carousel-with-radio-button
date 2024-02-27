@@ -36,7 +36,7 @@
     /* .slide's width is 500% of .slider's width/800px because .slider is the parent of .slide.
     child's width is based on it's parent width. So .slide's width = (800px * 5) = 4000px .
     .st's width is (4000px * 20/100) = 800px because .st is child of .slide. 
-    Now .slider's width === .st's width. each image's height and width must be equal to 
+    Now .slider's width === each .st's width. each image's height and width must be equal to 
     it's display container. Here .slider is the display container of each image. */
 
     width: 500%;
