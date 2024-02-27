@@ -1,56 +1,148 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-*{
-    margin: 0px;
+
+body{
     padding: 0px;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
+    margin: 0px;
+    height: 100vh;
+    justify-self: center;
+    align-items: center;
+    background: #23e3c2;
 }
 
-.container{
-    padding: 2rem;
-}
-.slider-wrapper{
-  position: relative;
-  max-width: 48rem;
-  margin: 0px auto;
-}
 
+.section{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .slider{
-    display: flex;
-    aspect-ratio: 16/9;
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
     overflow: hidden;
-    /* overflow-x: auto; */
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-    border-radius: 0.5rem;
 }
-.slider img{
-    flex: 1 0 100%;
-    scroll-snap-align: start;
-    object-fit: cover;
+.slide{
+
+    /* .slide's width is 500% of .slider's width/800px because .slider is the parent of .slide.
+    child's width is based on it's parent width. So .slide's width = (800px * 5) = 4000px .
+    .st's width is (4000px * 20/100) = 800px because .st is child of .slide. 
+    Now .slider's width === .st's width. each image's height and width must be equal to 
+    it's display container. Here .slider is the display container of each image. */
+
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+.slide input{
+    display: none;
 }
 
-.slider-nav{
-    display: flex;
-    column-gap: 1rem;
+/* .st has a link to image sliding and gap between two images. each image's parent is .st.
+So .st's width will determine the images' width. */
+
+.st{
+    /* .slide's width is 500% of .slider's width/800px because .slider is the parent of .slide.
+    child's width is based on it's parent width. So .slide's width = (800px * 5) = 4000px .
+    .st's width is (4000px * 20/100) = 800px because .st is child of .slide. 
+    Now .slider's width === .st's width. each image's height and width must be equal to 
+    it's display container. Here .slider is the display container of each image. */
+
+    width: 20%;
+
+    /* if I delete the below transition:2s; then the images sliding will be stopped but 
+    the images will come different way.  */
+    transition: 2s;
+}
+.st img{
+
+    width: 800px;
+    height: 500px;
+}
+.nav-m{
     position: absolute;
-    bottom: 1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    width: 800px;
+    /* .nav-m and .nav-auto is placed at same location for this reason both's css style is same. 
+    .nav-m is lifted from bottom to up 40px with below margin-top: -40px; so .nav-auto 
+    is down from top to bottom 460px to place both at same location. */
+    margin-top: -40px;
+    justify-content: center;
+    display: flex;
 }
-.slider-nav a{
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: #fff;
-    opacity: 0.75;
-    transition: opacity ease 250ms;
+
+/* .nav-auto{
+    position: absolute;
+    width: 800px;
+    margin-top: 460px;
+    display: flex;
+    justify-content: center;
+} */
+
+.m-btn{
+    border: 2px solid #23e3c2;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
 }
-.slider-nav a:hover{
-    opacity: 1;
+.m-btn:not(:last-child){
+    margin-right: 30px;
+}
+.m-btn:hover{
+    background-color: #23e3c2;
+}
+
+/* ~ is sibling selector/combinator. Sibling of #radio1 is .first */
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+#radio2:checked ~ .first{
+    /* Here 20% is equal to 800px from above notes and discussion. 
+    for minus value each image will go left side and four images will cover 
+    (4*800)px = 3200px of total 4000px. after that sliding will be restarted 
+    from 0px according to script file's condition */
+    /* the below margin-left: -20%; is related to .st's width; */
+    margin-left: -20%;
+}
+#radio3:checked ~ .first{
+    /* the below margin-left: -40%; is related to .st's width; */
+    margin-left: -40%;
+}
+#radio4:checked ~ .first{
+    /* the below margin-left: -60%; is related to .st's width; */
+    margin-left: -60%;
+}
+.nav-auto{
+    position: absolute;
+    width: 800px;
+    margin-top: 460px;
+    display: flex;
+    justify-content: center;
+}
+.nav-auto div{
+    border: 2px solid #23e3c2;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+.nav-auto div:not(:last-child){
+    margin-right: 30px;
+    justify-content: center;
+}
+
+/* ~ is sibling selector/combinator. Sibling of #radio1 is .nav-auto */
+
+#radio1:checked ~ .nav-auto .a-b1{
+    background: #23e3c2;
+}
+#radio2:checked ~ .nav-auto .a-b2{
+    background: #23e3c2;
+}
+#radio3:checked ~ .nav-auto .a-b3{
+    background: #23e3c2;
+}
+#radio4:checked ~ .nav-auto .a-b4{
+    background: #23e3c2;
 }
