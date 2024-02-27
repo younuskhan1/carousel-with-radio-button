@@ -79,6 +79,8 @@ So .st's width will determine the images' width. */
     display: flex;
 }
 
+/* below commented .nav-auto css bring for comparison between them. It's active css is below. */
+
 /* .nav-auto{
     position: absolute;
     width: 800px;
@@ -94,6 +96,11 @@ So .st's width will determine the images' width. */
     cursor: pointer;
     transition: 1s;
 }
+
+/* Only the last .m-btn/child will not get the margin-right: 30px; css style but others will get.
+:not(:last-child) indicated directly to the child. it does not indicate child inside the 
+parent */
+
 .m-btn:not(:last-child){
     margin-right: 30px;
 }
@@ -135,6 +142,11 @@ So .st's width will determine the images' width. */
     border-radius: 10px;
     transition: 1s;
 }
+
+/* Only the last div/child will not get the margin-right: 30px; css style but others will get.
+:not(:last-child) indicated directly to the child. it does not indicate child inside the 
+parent */
+
 .nav-auto div:not(:last-child){
     margin-right: 30px;
     justify-content: center;
