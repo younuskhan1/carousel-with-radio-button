@@ -51,10 +51,14 @@
     </div>
 
     <script>
+        // counter's initial value is 1 
         let counter = 1;
         setInterval(function(){
+            // Here the ("radio" + counter) will be like "radio1", "radio2", "radio3", "radio4" 
             document.getElementById("radio" + counter).checked = true;
             counter ++;
+            // (counter>4) here 4 is given because the total image number is 4;
+            // counter's value cannot be more than 4.
             if(counter > 4){
                 counter = 1;
             }
