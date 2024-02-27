@@ -113,6 +113,13 @@ parent */
 #radio1:checked ~ .first{
     margin-left: 0;
 }
+
+/* You can ask me that why did I give #radio1:checked ~ .first{} and why did I not give 
+#radio2:checked ~ .st{} because both are same. Please notice that .first and .st do not carry 
+the same width. .st's width is assigned 20% of it's parent .slide's width 4000px = 800px but 
+.first will get the full width of it's parent .slide's width that means .first's width is
+full 4000px what is really our needed to rotate the images as per margin-left minus figure.   */
+
 #radio2:checked ~ .first{
     /* Here 20% is equal to 800px from above notes and discussion. 
     for minus value each image will go left side and four images will cover 
