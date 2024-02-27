@@ -43,6 +43,9 @@
     height: 500px;
     display: flex;
 }
+
+/* radio input is normally hidden. It does not require to show again. It works hiddenly */
+
 .slide input{
     display: none;
 }
